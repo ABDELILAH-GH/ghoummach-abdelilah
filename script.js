@@ -408,7 +408,7 @@ function initTypingEffect() {
 }
 
 // Uncomment if you want typing effect
-// initTypingEffect();
+initTypingEffect();
 const downloadBtn = document.getElementById("downloadCV");
 
 downloadBtn.addEventListener("click", function () {
@@ -422,3 +422,56 @@ downloadBtn.addEventListener("click", function () {
     document.body.removeChild(link);
 
 });
+// Initialiser EmailJS
+  // Initialize EmailJS
+  emailjs.init("G1T_YQFURB82uD9n4"); // Your Public Key
+
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Clear previous errors
+    document.querySelectorAll(".error-message").forEach(span => span.textContent = "");
+    document.getElementById("success-msg").textContent = "";
+
+    // Form values
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    let isValid = true;
+
+    // Validation
+    if (!fullname) {
+      document.querySelector("#fullname + .underline + .error-message").textContent = "Fullname is required!";
+      isValid = false;
+    }
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      document.querySelector("#email + .underline + .error-message").textContent = "Valid email is required!";
+      isValid = false;
+    }
+
+    if (!phone || !/^\d{10}$/.test(phone)) {
+      document.querySelector("#phone + .underline + .error-message").textContent = "Valid 10-digit phone number is required!";
+      isValid = false;
+    }
+
+    if (!message || message.length < 5) {
+      document.querySelector("#message + .underline + .error-message").textContent = "Message must be at least 5 characters!";
+      isValid = false;
+    }
+
+    if (!isValid) return;
+
+    // Send with EmailJS
+emailjs.send("service_r79ovdm", "template_7fjbo3n", {
+  fullname: "Test User",
+  email: "test@example.com",
+  phone: "0123456789",
+  message: "Hello from test"
+}).then(res => console.log("Success", res))
+  .catch(err => console.log("Error", err));
+})
