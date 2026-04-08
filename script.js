@@ -410,7 +410,6 @@ function initTypingEffect() {
 // Uncomment if you want typing effect
 initTypingEffect();
 const downloadBtn = document.getElementById("downloadCV");
-
 downloadBtn.addEventListener("click", function () {
 
     const link = document.createElement("a");
@@ -421,6 +420,19 @@ downloadBtn.addEventListener("click", function () {
     link.click();
     document.body.removeChild(link);
 
+});
+const downloadOffer = document.getElementById("downloadOffer");
+
+downloadOffer.addEventListener("click", function (e) {
+    e.preventDefault(); // empêche le reload de la page
+
+    const link = document.createElement("a");
+    link.href = "offer.pdf";  
+    link.download = "Abdelilah_Ghoummach_Offer.pdf";
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 });
 // Initialiser EmailJS
   // Initialize EmailJS

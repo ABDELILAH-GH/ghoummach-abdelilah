@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     
     <!-- Fonts -->
-     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,6 @@
                     <li><a href="#about" class="nav-link"><span>About</span></a></li>
                     <li><a href="#skills" class="nav-link"><span>Skills</span></a></li>
                     <li><a href="#portfolio" class="nav-link"><span>Projects</span></a></li>
-                    <!-- <li><a href="#testimonials" class="nav-link"><span>Testimonials</span></a></li> -->
                     <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
                 </ul>
                 <div class="hamburger">
@@ -70,18 +69,22 @@
                         <span class="title-line"><span class="word">Solutions</span> <span class="word">with</span></span>
                         <span class="title-line"><span class="word">Code</span> <span class="word">&</span> <span class="word">Creativity</span></span>
                     </h1>
-                        <p class="hero-subtitle fade-in">I specialize in building modern and responsive websites using HTML, CSS, JavaScript, Laravel, and React.</p><div class="hero-buttons fade-in">
-    <a href="#" id="downloadCV" class="btn btn-primary magnetic">
-        <span class="btn-text">Download My CV</span>
-        <span class="btn-icon"><i class="fas fa-download"></i></span>
-    </a>
-
-    <a href="#contact" class="btn btn-secondary magnetic">
-        <span class="btn-text">Contact Me</span>
-        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-    </a>
-</div>
-            </div>
+                    <p class="hero-subtitle fade-in">I specialize in building modern and responsive websites using HTML, CSS, JavaScript, Laravel, and React.</p>
+                    <div class="hero-buttons fade-in">
+                        <a href="#" id="downloadCV" class="btn btn-primary magnetic">
+                            <span class="btn-text">Download My CV</span>
+                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                        </a>
+                        <a href="#" id="downloadOffer" class="btn btn-outline magnetic">
+                            <span class="btn-text">Our Offer</span>
+                            <span class="btn-icon"><i class="fas fa-tag"></i></span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary magnetic">
+                            <span class="btn-text">Contact Me</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </a>
+                    </div>
+                </div>
                 <!-- Profile Picture -->
                 <div class="profile-pic">
                     <div class="pic-frame">
@@ -410,7 +413,7 @@
                 <!-- Project 1 -->
                 <div class="project-card fade-in" data-category="frontend">
                     <div class="project-image">
-                        <img src="images/chakir.png"E-Learning Platform">
+                        <img src="images/chakir.png" alt="E-Learning Platform">
                         <div class="project-overlay">
                             <div class="overlay-content">
                                 <h3>Personal Portfolio for Designer</h3>
@@ -522,37 +525,31 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials section" >
+    <section class="testimonials section">
         <div class="container">
             <div class="section-header">
                 <h4 class="section-subtitle fade-in">Client Feedback</h4>
                 <h2 class="section-title fade-in">Testimonials</h2>
                 <div class="section-divider fade-in"></div>
             </div>
-    <div class="testimonial-slider fade-in">
-    <div class="testimonial-card active">
-        <div class="testimonial-content">
-            
-            <div class="quote-icon">
-                <i class="fas fa-quote-left"></i>
-            </div>
-
-            <p class="testimonial-text">
-                Ghoummach delivered an outstanding personal portfolio for me. His technical skills, creativity, and attention to detail exceeded my expectations. A highly professional and impressive project!
-            </p>
-
-            <div class="testimonial-author">
-                <img src="images/chakir_photo.png" alt="Chakir Abdelwahed" class="author-img">
-                
-                <div class="author-info">
-                    <h4>Chakir Abdelwahed</h4>
-                    <p>Motion Designer</p>
+            <div class="testimonial-slider fade-in">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">
+                            Ghoummach delivered an outstanding personal portfolio for me. His technical skills, creativity, and attention to detail exceeded my expectations. A highly professional and impressive project!
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="images/chakir_photo.png" alt="Chakir Abdelwahed" class="author-img">
+                            <div class="author-info">
+                                <h4>Chakir Abdelwahed</h4>
+                                <p>Motion Designer</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-    </div>
-</div>
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
@@ -634,48 +631,48 @@
                 </div>
                 
                 <div class="contact-form fade-in">
-  <form id="form" class="form-elements">
-    <div class="form-header">
-      <h3>Send Me a Message</h3>
-      <p>Fill out the form below and I'll get back to you as soon as possible.</p>
-    </div>
+                    <form id="form" class="form-elements">
+                        <div class="form-header">
+                            <h3>Send Me a Message</h3>
+                            <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                        </div>
 
-    <div class="form-group">
-      <input type="text" id="fullname" name="fullname" required>
-      <label for="fullname">Your Name</label>
-      <div class="underline"></div>
-      <span class="error-message"></span>
-    </div>
+                        <div class="form-group">
+                            <input type="text" id="fullname" name="fullname" required>
+                            <label for="fullname">Your Name</label>
+                            <div class="underline"></div>
+                            <span class="error-message"></span>
+                        </div>
 
-    <div class="form-group">
-      <input type="email" id="email" name="email" required>
-      <label for="email">Email Address</label>
-      <div class="underline"></div>
-      <span class="error-message"></span>
-    </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <div class="underline"></div>
+                            <span class="error-message"></span>
+                        </div>
 
-    <div class="form-group">
-      <input type="tel" id="phone" name="phone" required>
-      <label for="phone">Phone Number</label>
-      <div class="underline"></div>
-      <span class="error-message"></span>
-    </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">Phone Number</label>
+                            <div class="underline"></div>
+                            <span class="error-message"></span>
+                        </div>
 
-    <div class="form-group">
-      <textarea id="message" name="message" rows="5" required></textarea>
-      <label for="message">Your Message</label>
-      <div class="underline"></div>
-      <span class="error-message"></span>
-    </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="underline"></div>
+                            <span class="error-message"></span>
+                        </div>
 
-    <button type="submit" class="btn btn-primary magnetic">
-      <span class="btn-text">Send Message</span>
-      <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-    </button>
+                        <button type="submit" class="btn btn-primary magnetic">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                        </button>
 
-    <div id="success-msg" style="color:green; margin-top:10px;"></div>
-  </form>
-</div>
+                        <div id="success-msg" style="color:green; margin-top:10px;"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -740,7 +737,7 @@
     <a href="#home" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </a>
+    
     <script src="script.js"></script>
-
 </body>
 </html>
