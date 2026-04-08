@@ -33,20 +33,26 @@
         <div class="circle circle-3"></div>
     </div>
     
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    
     <!-- Navigation -->
     <header class="header">
         <div class="container">
             <div class="logo">
                 <h1>Ghoummach <span>Abdelilah</span></h1>
-                <p class="tagline">Full Stack Developer & Freelancer</p>
+                <p class="tagline" data-i18n="tagline">Full Stack Developer & Freelancer</p>
             </div>
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active"><span>Home</span></a></li>
-                    <li><a href="#about" class="nav-link"><span>About</span></a></li>
-                    <li><a href="#skills" class="nav-link"><span>Skills</span></a></li>
-                    <li><a href="#portfolio" class="nav-link"><span>Projects</span></a></li>
-                    <li><a href="#contact" class="nav-link"><span>Contact</span></a></li>
+                    <li><a href="#home" class="nav-link active"><span data-i18n="nav_home">Home</span></a></li>
+                    <li><a href="#about" class="nav-link"><span data-i18n="nav_about">About</span></a></li>
+                    <li><a href="#skills" class="nav-link"><span data-i18n="nav_skills">Skills</span></a></li>
+                    <li><a href="#portfolio" class="nav-link"><span data-i18n="nav_projects">Projects</span></a></li>
+                    <li><a href="#contact" class="nav-link"><span data-i18n="nav_contact">Contact</span></a></li>
                 </ul>
                 <div class="hamburger">
                     <span class="bar"></span>
@@ -63,24 +69,24 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h4 class="pre-title fade-in">Full Stack Developer</h4>
+                    <h4 class="pre-title fade-in" data-i18n="hero_pretitle">Full Stack Developer</h4>
                     <h1 class="hero-title">
-                        <span class="title-line"><span class="word">Building</span> <span class="word">Digital</span></span>
-                        <span class="title-line"><span class="word">Solutions</span> <span class="word">with</span></span>
-                        <span class="title-line"><span class="word">Code</span> <span class="word">&</span> <span class="word">Creativity</span></span>
+                        <span class="title-line"><span class="word" data-i18n="hero_title1">Building</span> <span class="word" data-i18n="hero_title2">Digital</span></span>
+                        <span class="title-line"><span class="word" data-i18n="hero_title3">Solutions</span> <span class="word" data-i18n="hero_title4">with</span></span>
+                        <span class="title-line"><span class="word" data-i18n="hero_title5">Code</span> <span class="word">&</span> <span class="word" data-i18n="hero_title6">Creativity</span></span>
                     </h1>
-                    <p class="hero-subtitle fade-in">I specialize in building modern and responsive websites using HTML, CSS, JavaScript, Laravel, and React.</p>
+                    <p class="hero-subtitle fade-in" data-i18n="hero_subtitle">I specialize in building modern and responsive websites using HTML, CSS, JavaScript, Laravel, and React.</p>
                     <div class="hero-buttons fade-in">
                         <a href="#" id="downloadCV" class="btn btn-primary magnetic">
-                            <span class="btn-text">Download My CV</span>
+                            <span class="btn-text" data-i18n="download_cv">Download My CV</span>
                             <span class="btn-icon"><i class="fas fa-download"></i></span>
                         </a>
                         <a href="#" id="downloadOffer" class="btn btn-primary magnetic">
-                            <span class="btn-text">Our Offer</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                            <span class="btn-text" data-i18n="our_offer">My Offer</span>
+                            <span class="btn-icon"><i class="fas fa-tag"></i></span>
                         </a>
                         <a href="#contact" class="btn btn-secondary magnetic">
-                            <span class="btn-text">Contact Me</span>
+                            <span class="btn-text" data-i18n="contact_me">Contact Me</span>
                             <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                         </a>
                     </div>
@@ -94,7 +100,7 @@
                         <div class="experience-badge">
                             <div class="inner-badge">
                                 <span class="years">3+</span>
-                                <span class="label">Years Experience</span>
+                                <span class="label" data-i18n="years_exp">Years Experience</span>
                             </div>
                         </div>
                     </div>
@@ -105,7 +111,7 @@
             <div class="mouse">
                 <div class="wheel"></div>
             </div>
-            <span>Scroll Down</span>
+            <span data-i18n="scroll_down">Scroll Down</span>
         </div>
     </section>
 
@@ -131,45 +137,45 @@
     <section id="about" class="about section">
         <div class="container">
             <div class="section-header">
-                <h4 class="section-subtitle fade-in">Get to Know Me</h4>
-                <h2 class="section-title fade-in">About <span>Me</span></h2>
+                <h4 class="section-subtitle fade-in" data-i18n="about_subtitle">Get to Know Me</h4>
+                <h2 class="section-title fade-in"><span data-i18n="about_title1">About</span> <span data-i18n="about_title2">Me</span></h2>
                 <div class="section-divider fade-in"></div>
             </div>
             <div class="about-content">
                 <div class="about-text fade-in">
-                    <p class="about-intro">I'm a passionate full-stack developer with 3+ years of experience crafting robust web applications.</p>
-                    <p class="about-bio">My journey in programming started with C++, and I've since expanded my expertise to include modern web technologies. I specialize in both backend (PHP/Laravel, Python, Express.js) and frontend (React, Next.js) development, allowing me to build complete, scalable solutions for my clients.</p>
+                    <p class="about-intro" data-i18n="about_intro">I'm a passionate full-stack developer with 3+ years of experience crafting robust web applications.</p>
+                    <p class="about-bio" data-i18n="about_bio">My journey in programming started with C++, and I've since expanded my expertise to include modern web technologies. I specialize in both backend (PHP/Laravel, Python, Express.js) and frontend (React, Next.js) development, allowing me to build complete, scalable solutions for my clients.</p>
                     
                     <div class="personal-info">
                         <div class="info-card">
-                            <h3><i class="fas fa-code"></i> Personal Details</h3>
+                            <h3><i class="fas fa-code"></i> <span data-i18n="personal_details">Personal Details</span></h3>
                             <ul>
                                 <li>
-                                    <span class="info-label">Full Name:</span>
+                                    <span class="info-label" data-i18n="full_name">Full Name:</span>
                                     <span class="info-value">Ghoummach Abdelilah</span>
                                 </li>
                                 <li>
-                                    <span class="info-label">Email:</span>
+                                    <span class="info-label" data-i18n="email">Email:</span>
                                     <span class="info-value">abdelilahghoummach21@gmail.com</span>
                                 </li>
                                 <li>
-                                    <span class="info-label">Phone:</span>
+                                    <span class="info-label" data-i18n="phone">Phone:</span>
                                     <span class="info-value">+212 713 927 870</span>
                                 </li>
                                 <li>
-                                    <span class="info-label">Location:</span>
-                                    <span class="info-value">Morocco (El jadida) </span>
+                                    <span class="info-label" data-i18n="location">Location:</span>
+                                    <span class="info-value" data-i18n="location_value">Morocco (El jadida)</span>
                                 </li>
                             </ul>
                         </div>
                         
                         <div class="awards-card">
-                            <h3><i class="fas fa-trophy"></i> Achievements</h3>
+                            <h3><i class="fas fa-trophy"></i> <span data-i18n="achievements">Achievements</span></h3>
                             <ul>
-                                <li>5+ Projects Completed</li>
-                                <li>1+ Happy Clients</li>
-                                <li>Full Stack Certification</li>
-                                <li>Open Source Contributor</li>
+                                <li data-i18n="achievement1">5+ Projects Completed</li>
+                                <li data-i18n="achievement2">1+ Happy Clients</li>
+                                <li data-i18n="achievement3">Full Stack Certification</li>
+                                <li data-i18n="achievement4">Open Source Contributor</li>
                             </ul>
                         </div>
                     </div>
@@ -178,7 +184,7 @@
                     <div class="image-container">
                         <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80" alt="Coding Setup" class="about-img">
                         <div class="quote-box">
-                            <p>"Code is like humor. When you have to explain it, it's bad."</p>
+                            <p data-i18n="quote_text">"Code is like humor. When you have to explain it, it's bad."</p>
                             <span class="quote-author">— Cory House</span>
                         </div>
                     </div>
@@ -191,8 +197,8 @@
     <section id="skills" class="skills section">
         <div class="container">
             <div class="section-header">
-                <h4 class="section-subtitle fade-in">What I Offer</h4>
-                <h2 class="section-title fade-in">Technical <span>Skills</span></h2>
+                <h4 class="section-subtitle fade-in" data-i18n="skills_subtitle">What I Offer</h4>
+                <h2 class="section-title fade-in"><span data-i18n="skills_title1">Technical</span> <span data-i18n="skills_title2">Skills</span></h2>
                 <div class="section-divider fade-in"></div>
             </div>
             <div class="skills-grid">
@@ -200,7 +206,7 @@
                 <div class="skill-category fade-in">
                     <div class="skill-header">
                         <i class="fas fa-code"></i>
-                        <h3>Programming Languages</h3>
+                        <h3 data-i18n="prog_languages">Programming Languages</h3>
                     </div>
                     <div class="skill-meter">
                         <div class="skill-item">
@@ -246,7 +252,7 @@
                 <div class="skill-category fade-in">
                     <div class="skill-header">
                         <i class="fas fa-paint-brush"></i>
-                        <h3>Frontend</h3>
+                        <h3 data-i18n="frontend">Frontend</h3>
                     </div>
                     <ul class="skill-list creative">
                         <li>
@@ -296,7 +302,7 @@
                 <div class="skill-category fade-in">
                     <div class="skill-header">
                         <i class="fas fa-server"></i>
-                        <h3>Backend & Frameworks</h3>
+                        <h3 data-i18n="backend">Backend & Frameworks</h3>
                     </div>
                     <ul class="skill-list creative">
                         <li>
@@ -322,7 +328,7 @@
                     </ul>
                     
                     <div class="additional-skills" style="margin-top: 30px;">
-                        <h4>Databases:</h4>
+                        <h4 data-i18n="databases">Databases:</h4>
                         <div class="skill-tags">
                             <span class="tag">MySQL</span>
                             <span class="tag">MongoDB</span>
@@ -334,7 +340,7 @@
                 <div class="skill-category fade-in">
                     <div class="skill-header">
                         <i class="fas fa-tools"></i>
-                        <h3>Tools & Version Control</h3>
+                        <h3 data-i18n="tools">Tools & Version Control</h3>
                     </div>
                     <ul class="skill-list creative">
                         <li>
@@ -360,11 +366,11 @@
                     </ul>
                     
                     <div class="language-skills" style="margin-top: 30px;">
-                        <h4>Languages:</h4>
+                        <h4 data-i18n="spoken_languages">Languages:</h4>
                         <div class="language-item">
                             <div class="language-info">
-                                <span>Arabic</span>
-                                <span>Native</span>
+                                <span data-i18n="arabic">Arabic</span>
+                                <span data-i18n="native">Native</span>
                             </div>
                             <div class="language-bar">
                                 <div class="fill" style="width: 100%"></div>
@@ -372,8 +378,8 @@
                         </div>
                         <div class="language-item">
                             <div class="language-info">
-                                <span>French</span>
-                                <span>Fluent</span>
+                                <span data-i18n="french">French</span>
+                                <span data-i18n="fluent">Fluent</span>
                             </div>
                             <div class="language-bar">
                                 <div class="fill" style="width: 85%"></div>
@@ -381,8 +387,8 @@
                         </div>
                         <div class="language-item">
                             <div class="language-info">
-                                <span>English</span>
-                                <span>Professional</span>
+                                <span data-i18n="english">English</span>
+                                <span data-i18n="professional">Professional</span>
                             </div>
                             <div class="language-bar">
                                 <div class="fill" style="width: 80%"></div>
@@ -398,16 +404,16 @@
     <section id="portfolio" class="portfolio section">
         <div class="container">
             <div class="section-header">
-                <h4 class="section-subtitle fade-in">Recent Work</h4>
-                <h2 class="section-title fade-in">Featured <span>Projects</span></h2>
+                <h4 class="section-subtitle fade-in" data-i18n="portfolio_subtitle">Recent Work</h4>
+                <h2 class="section-title fade-in"><span data-i18n="portfolio_title1">Featured</span> <span data-i18n="portfolio_title2">Projects</span></h2>
                 <div class="section-divider fade-in"></div>
-                <p class="section-description fade-in">A selection of my most impactful projects built with modern technologies.</p>
+                <p class="section-description fade-in" data-i18n="portfolio_desc">A selection of my most impactful projects built with modern technologies.</p>
             </div>
             <div class="portfolio-filter fade-in">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="frontend">Frontend</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn active" data-filter="all" data-i18n="all_projects">All Projects</button>
+                <button class="filter-btn" data-filter="frontend" data-i18n="filter_frontend">Frontend</button>
+                <button class="filter-btn" data-filter="backend" data-i18n="filter_backend">Backend</button>
+                <button class="filter-btn" data-filter="fullstack" data-i18n="filter_fullstack">Full Stack</button>
             </div>
             <div class="portfolio-grid">
                 <!-- Project 1 -->
@@ -416,18 +422,18 @@
                         <img src="images/chakir.png" alt="E-Learning Platform">
                         <div class="project-overlay">
                             <div class="overlay-content">
-                                <h3>Personal Portfolio for Designer</h3>
-                                <p>Design and development of a portfolio website in HTML, CSS and JavaScript to showcase the achievements and services of a designer.</p>
-                                <a href="https://chakir-abdelwahed.vercel.app/" class="view-btn">View Details</a>
+                                <h3 data-i18n="project1_title">Personal Portfolio for Designer</h3>
+                                <p data-i18n="project1_desc">Design and development of a portfolio website in HTML, CSS and JavaScript to showcase the achievements and services of a designer.</p>
+                                <a href="https://chakir-abdelwahed.vercel.app/" class="view-btn" data-i18n="view_details">View Details</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <div class="project-meta">
-                            <span class="project-category">Frontend</span>
+                            <span class="project-category" data-i18n="category_frontend">Frontend</span>
                             <span class="project-year">2025</span>
                         </div>
-                        <h3>Personal Portfolio for Designer</h3>
+                        <h3 data-i18n="project1_title">Personal Portfolio for Designer</h3>
                         <div class="project-tags">
                             <span>Html</span>
                             <span>Css</span>
@@ -442,18 +448,18 @@
                         <img src="images/construction.png" alt="Inventory Management">
                         <div class="project-overlay">
                             <div class="overlay-content">
-                                <h3>Construction Project Portfolio</h3>
-                                <p>Showcasing completed projects with detailed plans, progress tracking, and real-time updates.</p>
-                                <a href="https://constrction-project-ofyd.vercel.app/" class="view-btn">View Details</a>
+                                <h3 data-i18n="project2_title">Construction Project Portfolio</h3>
+                                <p data-i18n="project2_desc">Showcasing completed projects with detailed plans, progress tracking, and real-time updates.</p>
+                                <a href="https://constrction-project-ofyd.vercel.app/" class="view-btn" data-i18n="view_details">View Details</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <div class="project-meta">
-                            <span class="project-category">Frontend</span>
+                            <span class="project-category" data-i18n="category_frontend">Frontend</span>
                             <span class="project-year">2024</span>
                         </div>
-                        <h3>Construction Project Portfolio</h3>
+                        <h3 data-i18n="project2_title">Construction Project Portfolio</h3>
                         <div class="project-tags">
                             <span>React</span>
                             <span>Css</span>
@@ -468,18 +474,18 @@
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="Data Analytics Dashboard">
                         <div class="project-overlay">
                             <div class="overlay-content">
-                                <h3>Analytics Dashboard</h3>
-                                <p>Interactive dashboard for business metrics visualization</p>
-                                <a href="#" class="view-btn">View Details</a>
+                                <h3 data-i18n="project3_title">Analytics Dashboard</h3>
+                                <p data-i18n="project3_desc">Interactive dashboard for business metrics visualization</p>
+                                <a href="#" class="view-btn" data-i18n="view_details">View Details</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <div class="project-meta">
-                            <span class="project-category">Full Stack</span>
+                            <span class="project-category" data-i18n="category_fullstack">Full Stack</span>
                             <span class="project-year">2022</span>
                         </div>
-                        <h3>Analytics Dashboard</h3>
+                        <h3 data-i18n="project3_title">Analytics Dashboard</h3>
                         <div class="project-tags">
                             <span>Python</span>
                             <span>Flask</span>
@@ -494,18 +500,18 @@
                         <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Task Management App">
                         <div class="project-overlay">
                             <div class="overlay-content">
-                                <h3>Task Management App</h3>
-                                <p>Collaborative tool with real-time updates</p>
-                                <a href="#" class="view-btn">View Details</a>
+                                <h3 data-i18n="project4_title">Task Management App</h3>
+                                <p data-i18n="project4_desc">Collaborative tool with real-time updates</p>
+                                <a href="#" class="view-btn" data-i18n="view_details">View Details</a>
                             </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <div class="project-meta">
-                            <span class="project-category">Frontend</span>
+                            <span class="project-category" data-i18n="category_frontend">Frontend</span>
                             <span class="project-year">2022</span>
                         </div>
-                        <h3>Task Management App</h3>
+                        <h3 data-i18n="project4_title">Task Management App</h3>
                         <div class="project-tags">
                             <span>Next.js</span>
                             <span>Express</span>
@@ -515,9 +521,9 @@
                 </div>
             </div>
             <div class="portfolio-cta fade-in">
-                <p>Want to see more of my work?</p>
+                <p data-i18n="see_more">Want to see more of my work?</p>
                 <a href="https://github.com/ABDELILAH-GH" class="btn btn-secondary magnetic">
-                    <span class="btn-text">View GitHub Profile</span>
+                    <span class="btn-text" data-i18n="view_github">View GitHub Profile</span>
                     <span class="btn-icon"><i class="fab fa-github"></i></span>
                 </a>
             </div>
@@ -528,8 +534,8 @@
     <section class="testimonials section">
         <div class="container">
             <div class="section-header">
-                <h4 class="section-subtitle fade-in">Client Feedback</h4>
-                <h2 class="section-title fade-in">Testimonials</h2>
+                <h4 class="section-subtitle fade-in" data-i18n="testimonials_subtitle">Client Feedback</h4>
+                <h2 class="section-title fade-in" data-i18n="testimonials_title">Testimonials</h2>
                 <div class="section-divider fade-in"></div>
             </div>
             <div class="testimonial-slider fade-in">
@@ -538,14 +544,14 @@
                         <div class="quote-icon">
                             <i class="fas fa-quote-left"></i>
                         </div>
-                        <p class="testimonial-text">
+                        <p class="testimonial-text" data-i18n="testimonial1_text">
                             Ghoummach delivered an outstanding personal portfolio for me. His technical skills, creativity, and attention to detail exceeded my expectations. A highly professional and impressive project!
                         </p>
                         <div class="testimonial-author">
                             <img src="images/chakir_photo.png" alt="Chakir Abdelwahed" class="author-img">
                             <div class="author-info">
                                 <h4>Chakir Abdelwahed</h4>
-                                <p>Motion Designer</p>
+                                <p data-i18n="motion_designer">Motion Designer</p>
                             </div>
                         </div>
                     </div>
@@ -553,12 +559,12 @@
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                        <p class="testimonial-text">Working with Ghoummach on our inventory system was a great experience. His knowledge of Laravel and database optimization helped us build a robust solution.</p>
+                        <p class="testimonial-text" data-i18n="testimonial2_text">Working with Ghoummach on our inventory system was a great experience. His knowledge of Laravel and database optimization helped us build a robust solution.</p>
                         <div class="testimonial-author">
                             <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Mohammed Amine" class="author-img">
                             <div class="author-info">
                                 <h4>Mohammed Amine</h4>
-                                <p>Tech Lead</p>
+                                <p data-i18n="tech_lead">Tech Lead</p>
                             </div>
                         </div>
                     </div>
@@ -575,35 +581,35 @@
     <section id="contact" class="contact section">
         <div class="container">
             <div class="section-header">
-                <h4 class="section-subtitle fade-in">Let's Connect</h4>
-                <h2 class="section-title fade-in">Get In <span>Touch</span></h2>
+                <h4 class="section-subtitle fade-in" data-i18n="contact_subtitle">Let's Connect</h4>
+                <h2 class="section-title fade-in"><span data-i18n="contact_title1">Get In</span> <span data-i18n="contact_title2">Touch</span></h2>
                 <div class="section-divider fade-in"></div>
-                <p class="section-description fade-in">Have a project in mind or want to discuss potential collaboration? I'd love to hear from you.</p>
+                <p class="section-description fade-in" data-i18n="contact_desc">Have a project in mind or want to discuss potential collaboration? I'd love to hear from you.</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info fade-in">
                     <div class="info-card">
-                        <h3><i class="fas fa-paper-plane"></i> Contact Information</h3>
+                        <h3><i class="fas fa-paper-plane"></i> <span data-i18n="contact_info">Contact Information</span></h3>
                         <ul>
                             <li>
                                 <i class="fas fa-phone"></i>
                                 <div>
-                                    <span>Phone</span>
-                                    <a href="tel:+212600000000">+212 713 927 870</a>
+                                    <span data-i18n="phone_label">Phone</span>
+                                    <a href="tel:+212713927870">+212 713 927 870</a>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-envelope"></i>
                                 <div>
-                                    <span>Email</span>
-                                    <a href="mailto:abdelilah@example.com">abdelilahghoummach21@gmail.com</a>
+                                    <span data-i18n="email_label">Email</span>
+                                    <a href="mailto:abdelilahghoummach21@gmail.com">abdelilahghoummach21@gmail.com</a>
                                 </div>
                             </li>
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
-                                    <span>Location</span>
-                                    <span>Morocco (Remote)</span>
+                                    <span data-i18n="location_label">Location</span>
+                                    <span data-i18n="location_value">Morocco (Remote)</span>
                                     <span>El jadida</span>
                                 </div>
                             </li>
@@ -611,8 +617,8 @@
                     </div>
                     
                     <div class="availability-card">
-                        <h3><i class="fas fa-calendar-check"></i> Availability</h3>
-                        <p>Currently accepting freelance projects. Typical response time: 24 hours.</p>
+                        <h3><i class="fas fa-calendar-check"></i> <span data-i18n="availability">Availability</span></h3>
+                        <p data-i18n="availability_text">Currently accepting freelance projects. Typical response time: 24 hours.</p>
                         <div class="social-links">
                             <a href="https://github.com/ABDELILAH-GH" class="social-link" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
@@ -633,40 +639,40 @@
                 <div class="contact-form fade-in">
                     <form id="form" class="form-elements">
                         <div class="form-header">
-                            <h3>Send Me a Message</h3>
-                            <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                            <h3 data-i18n="send_message">Send Me a Message</h3>
+                            <p data-i18n="form_desc">Fill out the form below and I'll get back to you as soon as possible.</p>
                         </div>
 
                         <div class="form-group">
                             <input type="text" id="fullname" name="fullname" required>
-                            <label for="fullname">Your Name</label>
+                            <label for="fullname" data-i18n="your_name">Your Name</label>
                             <div class="underline"></div>
                             <span class="error-message"></span>
                         </div>
 
                         <div class="form-group">
                             <input type="email" id="email" name="email" required>
-                            <label for="email">Email Address</label>
+                            <label for="email" data-i18n="your_email">Email Address</label>
                             <div class="underline"></div>
                             <span class="error-message"></span>
                         </div>
 
                         <div class="form-group">
                             <input type="tel" id="phone" name="phone" required>
-                            <label for="phone">Phone Number</label>
+                            <label for="phone" data-i18n="your_phone">Phone Number</label>
                             <div class="underline"></div>
                             <span class="error-message"></span>
                         </div>
 
                         <div class="form-group">
                             <textarea id="message" name="message" rows="5" required></textarea>
-                            <label for="message">Your Message</label>
+                            <label for="message" data-i18n="your_message">Your Message</label>
                             <div class="underline"></div>
                             <span class="error-message"></span>
                         </div>
 
                         <button type="submit" class="btn btn-primary magnetic">
-                            <span class="btn-text">Send Message</span>
+                            <span class="btn-text" data-i18n="send_btn">Send Message</span>
                             <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                         </button>
 
@@ -684,32 +690,32 @@
                 <div class="footer-col">
                     <div class="logo">
                         <h2>Ghoummach <span>Abdelilah</span></h2>
-                        <p class="tagline">Full Stack Developer</p>
+                        <p class="tagline" data-i18n="footer_tagline">Full Stack Developer</p>
                     </div>
-                    <p class="footer-text">Building robust web applications with modern technologies.</p>
+                    <p class="footer-text" data-i18n="footer_text">Building robust web applications with modern technologies.</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Quick Links</h3>
+                    <h3 data-i18n="quick_links">Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#portfolio">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                        <li><a href="#about" data-i18n="nav_about">About</a></li>
+                        <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+                        <li><a href="#portfolio" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Services</h3>
+                    <h3 data-i18n="services">Services</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Full Stack Applications</a></li>
-                        <li><a href="#">API Development</a></li>
-                        <li><a href="#">Database Design</a></li>
-                        <li><a href="#">Frontend Development</a></li>
+                        <li><a href="#" data-i18n="service1">Web Development</a></li>
+                        <li><a href="#" data-i18n="service2">Full Stack Applications</a></li>
+                        <li><a href="#" data-i18n="service3">API Development</a></li>
+                        <li><a href="#" data-i18n="service4">Database Design</a></li>
+                        <li><a href="#" data-i18n="service5">Frontend Development</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Connect</h3>
+                    <h3 data-i18n="connect">Connect</h3>
                     <ul class="footer-contact">
                         <li><i class="fas fa-phone"></i> +212 713 927 870</li>
                         <li><i class="fas fa-envelope"></i> abdelilahghoummach21@gmail.com</li>
@@ -724,10 +730,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="year"></span> Ghoummach Abdelilah. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> Ghoummach Abdelilah. <span data-i18n="all_rights">All rights reserved.</span></p>
                 <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="#" data-i18n="privacy">Privacy Policy</a>
+                    <a href="#" data-i18n="terms">Terms of Service</a>
                 </div>
             </div>
         </div>
