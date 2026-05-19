@@ -1,8 +1,8 @@
 // script.js - Complete functionality with Language Switcher
-// Updated to fully support Café Napoli translation and all hardcoded elements
+// Fixed translation for Café Napoli / Coffee Napoli
 
 // ==========================================================================
-// Translations Data (including Café Napoli)
+// Translations Data (including Café/Coffee Napoli)
 // ==========================================================================
 const translations = {
     en: {
@@ -65,11 +65,11 @@ const translations = {
         filter_frontend: "Frontend",
         filter_backend: "Backend",
         filter_fullstack: "Full Stack",
-        // Café Napoli translations
-        cafe_napoli_title: "Café Napoli",
-        cafe_napoli_desc: "Modern and responsive café restaurant website with elegant UI design",
-        cafe_napoli_category: "Restaurant Website",
-        cafe_napoli_btn: "Visit Website",
+        // Napoli project (English)
+        napoli_title: "Coffee Napoli",
+        napoli_desc: "Modern and responsive coffee shop website with elegant UI design",
+        napoli_category: "Coffee Shop Website",
+        napoli_btn: "Visit Website",
         // Other projects
         project1_title: "Personal Portfolio for Designer",
         project1_desc: "Design and development of a portfolio website in HTML, CSS and JavaScript to showcase the achievements and services of a designer.",
@@ -187,12 +187,12 @@ const translations = {
         filter_frontend: "Frontend",
         filter_backend: "Backend",
         filter_fullstack: "Full Stack",
-        // Café Napoli translations (French)
-        cafe_napoli_title: "Café Napoli",
-        cafe_napoli_desc: "Site web moderne et responsive pour un café-restaurant avec un design UI élégant",
-        cafe_napoli_category: "Site Restaurant",
-        cafe_napoli_btn: "Visiter le Site",
-        // Other projects
+        // Napoli project (French)
+        napoli_title: "Café Napoli",
+        napoli_desc: "Site web moderne et responsive pour un café-restaurant avec un design UI élégant",
+        napoli_category: "Site de Café",
+        napoli_btn: "Visiter le Site",
+        // Other projects (French)
         project1_title: "Portfolio Personnel pour Designer",
         project1_desc: "Conception et développement d'un site portfolio en HTML, CSS et JavaScript pour présenter les réalisations et services d'un designer.",
         project2_title: "Portfolio de Projet de Construction",
@@ -262,77 +262,65 @@ function switchLanguage(lang) {
     // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.dataset.lang === lang) {
-            btn.classList.add('active');
-        }
+        if (btn.dataset.lang === lang) btn.classList.add('active');
     });
     
-    // Update HTML lang attribute
     document.documentElement.lang = lang;
     
     // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.dataset.i18n;
         if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
                 element.placeholder = translations[lang][key];
-            } else {
+            else
                 element.textContent = translations[lang][key];
-            }
         }
     });
     
-    // Special handling for Café Napoli card (no data-i18n attributes)
-    translateCafeNapoli(lang);
+    // Translate the Napoli project card (hardcoded)
+    translateNapoliCard(lang);
     
-    // Re-trigger hero animation
     resetHeroAnimation();
-    
-    // Save preference
     localStorage.setItem('preferredLanguage', lang);
 }
 
-// Translate the hardcoded Café Napoli project card
-function translateCafeNapoli(lang) {
-    // Find the first project-card with data-category="restaurant" (Café Napoli)
-    const cafeCard = document.querySelector('.project-card[data-category="restaurant"]');
-    if (!cafeCard) return;
+// Robust translation for the Napoli project card
+function translateNapoliCard(lang) {
+    // Find the card by data-category="restaurant" (or by image src if needed)
+    let napoliCard = document.querySelector('.project-card[data-category="restaurant"]');
+    if (!napoliCard) {
+        // Fallback: find by image containing "cafe-napoli.png"
+        napoliCard = document.querySelector('.project-card img[src*="cafe-napoli"]')?.closest('.project-card');
+    }
+    if (!napoliCard) return;
     
-    // Titles (overlay h3 and info h3)
-    const titles = cafeCard.querySelectorAll('.overlay-content h3, .project-info h3');
+    // Update overlay title and info title
+    const titles = napoliCard.querySelectorAll('.overlay-content h3, .project-info h3');
     titles.forEach(title => {
-        if (translations[lang] && translations[lang].cafe_napoli_title) {
-            title.textContent = translations[lang].cafe_napoli_title;
-        }
+        if (translations[lang]?.napoli_title) title.textContent = translations[lang].napoli_title;
     });
     
-    // Description paragraph in overlay
-    const desc = cafeCard.querySelector('.overlay-content p');
-    if (desc && translations[lang] && translations[lang].cafe_napoli_desc) {
-        desc.textContent = translations[lang].cafe_napoli_desc;
-    }
+    // Update description in overlay
+    const desc = napoliCard.querySelector('.overlay-content p');
+    if (desc && translations[lang]?.napoli_desc) desc.textContent = translations[lang].napoli_desc;
     
-    // Category span in project-meta
-    const categorySpan = cafeCard.querySelector('.project-meta .project-category');
-    if (categorySpan && translations[lang] && translations[lang].cafe_napoli_category) {
-        categorySpan.textContent = translations[lang].cafe_napoli_category;
-    }
+    // Update category in project-meta
+    const category = napoliCard.querySelector('.project-meta .project-category');
+    if (category && translations[lang]?.napoli_category) category.textContent = translations[lang].napoli_category;
     
-    // Button text in overlay (Visit Website)
-    const btn = cafeCard.querySelector('.overlay-content .view-btn');
-    if (btn && translations[lang] && translations[lang].cafe_napoli_btn) {
-        btn.textContent = translations[lang].cafe_napoli_btn;
-    }
+    // Update button text
+    const btn = napoliCard.querySelector('.overlay-content .view-btn');
+    if (btn && translations[lang]?.napoli_btn) btn.textContent = translations[lang].napoli_btn;
 }
 
 function resetHeroAnimation() {
     const words = document.querySelectorAll('.word');
     words.forEach(word => {
         word.style.animation = 'none';
-        word.offsetHeight; // Trigger reflow
+        word.offsetHeight;
         word.style.animation = null;
     });
-    
     setTimeout(() => {
         words.forEach((word, index) => {
             word.style.animation = `fadeInUp 0.8s ${index * 0.1}s forwards`;
@@ -341,13 +329,10 @@ function resetHeroAnimation() {
 }
 
 // ==========================================================================
-// DOM Content Loaded - Initialize all functionality
+// DOM Content Loaded
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize language switcher first
     initLanguageSwitcher();
-    
-    // Initialize all other functionality
     initNavigation();
     initScrollEffects();
     initAnimations();
@@ -364,36 +349,23 @@ document.addEventListener('DOMContentLoaded', function() {
     initEmailJS();
 });
 
-// ==========================================================================
-// Initialize Language Switcher
-// ==========================================================================
 function initLanguageSwitcher() {
     const langButtons = document.querySelectorAll('.lang-btn');
-    
-    // Load saved language preference
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && (savedLang === 'en' || savedLang === 'fr')) {
         currentLanguage = savedLang;
     } else {
-        // Detect browser language
         const browserLang = navigator.language.split('-')[0];
         currentLanguage = (browserLang === 'fr') ? 'fr' : 'en';
     }
-    
-    // Apply initial language
     switchLanguage(currentLanguage);
-    
-    // Add click handlers
     langButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.dataset.lang;
-            switchLanguage(lang);
-        });
+        btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
     });
 }
 
 // ==========================================================================
-// Navigation - Mobile menu and scroll
+// Navigation
 // ==========================================================================
 function initNavigation() {
     const header = document.querySelector('.header');
@@ -402,26 +374,26 @@ function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     
     if (hamburger && navList) {
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
             navList.classList.toggle('active');
             document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
         });
     }
     
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', () => {
             if (hamburger && navList) {
                 hamburger.classList.remove('active');
                 navList.classList.remove('active');
                 document.body.style.overflow = '';
             }
-            navLinks.forEach(navLink => navLink.classList.remove('active'));
-            this.classList.add('active');
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
         });
     });
     
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
         if (header) {
             if (window.scrollY > 100) {
                 header.style.padding = '10px 0';
@@ -435,64 +407,56 @@ function initNavigation() {
 }
 
 // ==========================================================================
-// Scroll Effects - Smooth scrolling and active nav
+// Scroll Effects
 // ==========================================================================
 function initScrollEffects() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+            const target = document.querySelector(targetId);
+            if (target) {
                 e.preventDefault();
                 const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                const pos = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top: pos, behavior: 'smooth' });
             }
         });
     });
     
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
-    if (sections.length && navLinks.length) {
-        window.addEventListener('scroll', function() {
+    if (sections.length) {
+        window.addEventListener('scroll', () => {
             let current = '';
             const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - headerHeight - 50) {
-                    current = section.getAttribute('id');
-                }
+                const top = section.offsetTop;
+                if (window.scrollY >= top - headerHeight - 50) current = section.getAttribute('id');
             });
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
             });
         });
     }
 }
 
 // ==========================================================================
-// Animations - Fade in on scroll
+// Animations
 // ==========================================================================
 function initAnimations() {
     const fadeElements = document.querySelectorAll('.fade-in');
-    const fadeObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('visible');
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
-    fadeElements.forEach(element => fadeObserver.observe(element));
+    fadeElements.forEach(el => observer.observe(el));
     
     setTimeout(() => {
-        const words = document.querySelectorAll('.word');
-        words.forEach((word, index) => {
-            word.style.animation = `fadeInUp 0.8s ${index * 0.1}s forwards`;
+        document.querySelectorAll('.word').forEach((word, i) => {
+            word.style.animation = `fadeInUp 0.8s ${i * 0.1}s forwards`;
         });
     }, 300);
 }
@@ -501,23 +465,20 @@ function initAnimations() {
 // Portfolio Filter
 // ==========================================================================
 function initPortfolioFilter() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    if (!filterButtons.length || !projectCards.length) return;
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    if (!filterBtns.length) return;
     
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            const filterValue = this.getAttribute('data-filter');
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            cards.forEach(card => {
+                const cat = card.dataset.category;
+                if (filter === 'all' || cat === filter) {
                     card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 10);
+                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 10);
                 } else {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(20px)';
@@ -532,221 +493,134 @@ function initPortfolioFilter() {
 // Testimonial Slider
 // ==========================================================================
 function initTestimonialSlider() {
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const cards = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.testimonial-dots .dot');
-    let currentIndex = 0;
-    let slideInterval;
-    if (!testimonialCards.length) return;
-    
-    function showTestimonial(index) {
-        testimonialCards.forEach(card => card.classList.remove('active'));
-        if (dots.length) dots.forEach(dot => dot.classList.remove('active'));
-        const safeIndex = (index + testimonialCards.length) % testimonialCards.length;
-        testimonialCards[safeIndex].classList.add('active');
-        if (dots.length && dots[safeIndex]) dots[safeIndex].classList.add('active');
-        currentIndex = safeIndex;
+    if (!cards.length) return;
+    let current = 0, interval;
+    function show(index) {
+        cards.forEach(c => c.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        const safe = (index + cards.length) % cards.length;
+        cards[safe].classList.add('active');
+        if (dots[safe]) dots[safe].classList.add('active');
+        current = safe;
     }
-    
-    dots.forEach((dot, index) => {
+    dots.forEach((dot, i) => {
         dot.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            showTestimonial(index);
-            startAutoSlide();
+            clearInterval(interval);
+            show(i);
+            startAuto();
         });
     });
-    
-    function startAutoSlide() {
-        slideInterval = setInterval(() => showTestimonial(currentIndex + 1), 5000);
-    }
-    startAutoSlide();
+    function startAuto() { interval = setInterval(() => show(current + 1), 5000); }
+    startAuto();
 }
 
 // ==========================================================================
 // Contact Form with EmailJS
 // ==========================================================================
 function initContactForm() {
-    const contactForm = document.getElementById('form');
-    if (!contactForm) return;
-    
-    contactForm.addEventListener('submit', function(e) {
+    const form = document.getElementById('form');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         const fullname = document.getElementById('fullname')?.value.trim() || '';
         const email = document.getElementById('email')?.value.trim() || '';
         const phone = document.getElementById('phone')?.value.trim() || '';
         const message = document.getElementById('message')?.value.trim() || '';
-        let isValid = true;
+        let valid = true;
+        document.querySelectorAll('.error-message').forEach(s => s.textContent = '');
+        if (!fullname) { showError('fullname', translations[currentLanguage].error_required); valid = false; }
+        if (!email || !/\S+@\S+\.\S+/.test(email)) { showError('email', translations[currentLanguage].error_email); valid = false; }
+        if (!phone || !/^\d{10}$/.test(phone)) { showError('phone', translations[currentLanguage].error_phone); valid = false; }
+        if (!message || message.length < 5) { showError('message', translations[currentLanguage].error_message); valid = false; }
+        if (!valid) return;
         
-        document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
-        
-        if (!fullname) { showError('fullname', translations[currentLanguage].error_required); isValid = false; }
-        if (!email || !/\S+@\S+\.\S+/.test(email)) { showError('email', translations[currentLanguage].error_email); isValid = false; }
-        if (!phone || !/^\d{10}$/.test(phone)) { showError('phone', translations[currentLanguage].error_phone); isValid = false; }
-        if (!message || message.length < 5) { showError('message', translations[currentLanguage].error_message); isValid = false; }
-        if (!isValid) return;
-        
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn?.innerHTML || 'Send Message';
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const original = submitBtn?.innerHTML;
         if (submitBtn) { submitBtn.innerHTML = '<span class="btn-text">Sending...</span>'; submitBtn.disabled = true; }
         
         if (typeof emailjs !== 'undefined') {
             emailjs.send("service_r79ovdm", "template_7fjbo3n", { fullname, email, phone, message })
                 .then(() => {
-                    const successMsg = document.getElementById('success-msg');
-                    if (successMsg) {
-                        successMsg.textContent = translations[currentLanguage].success_message;
-                        setTimeout(() => successMsg.textContent = '', 5000);
-                    }
-                    contactForm.reset();
-                    if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
+                    const msg = document.getElementById('success-msg');
+                    if (msg) { msg.textContent = translations[currentLanguage].success_message; setTimeout(() => msg.textContent = '', 5000); }
+                    form.reset();
+                    if (submitBtn) { submitBtn.innerHTML = original; submitBtn.disabled = false; }
                 })
-                .catch((error) => {
-                    console.error('EmailJS Error:', error);
-                    alert('Failed to send message. Please try again later.');
-                    if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
-                });
+                .catch(err => { console.error(err); alert('Failed to send message.'); if (submitBtn) { submitBtn.innerHTML = original; submitBtn.disabled = false; } });
         } else {
             console.warn('EmailJS not loaded');
-            const successMsg = document.getElementById('success-msg');
-            if (successMsg) {
-                successMsg.textContent = translations[currentLanguage].success_message;
-                setTimeout(() => successMsg.textContent = '', 3000);
-            }
-            contactForm.reset();
-            if (submitBtn) { submitBtn.innerHTML = originalText; submitBtn.disabled = false; }
+            const msg = document.getElementById('success-msg');
+            if (msg) { msg.textContent = translations[currentLanguage].success_message; setTimeout(() => msg.textContent = '', 3000); }
+            form.reset();
+            if (submitBtn) { submitBtn.innerHTML = original; submitBtn.disabled = false; }
         }
     });
 }
-
-function showError(fieldId, message) {
+function showError(fieldId, msg) {
     const field = document.getElementById(fieldId);
     if (field && field.parentElement) {
-        let errorSpan = field.parentElement.querySelector('.error-message');
-        if (!errorSpan) {
-            errorSpan = document.createElement('span');
-            errorSpan.className = 'error-message';
-            field.parentElement.appendChild(errorSpan);
-        }
-        errorSpan.textContent = message;
+        let err = field.parentElement.querySelector('.error-message');
+        if (!err) { err = document.createElement('span'); err.className = 'error-message'; field.parentElement.appendChild(err); }
+        err.textContent = msg;
     }
 }
 
-// ==========================================================================
-// EmailJS Initialization
-// ==========================================================================
-function initEmailJS() {
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init("G1T_YQFURB82uD9n4");
-    }
-}
+function initEmailJS() { if (typeof emailjs !== 'undefined') emailjs.init("G1T_YQFURB82uD9n4"); }
 
-// ==========================================================================
-// Download Buttons
-// ==========================================================================
 function initDownloadButtons() {
-    const downloadCV = document.getElementById("downloadCV");
-    if (downloadCV) {
-        downloadCV.addEventListener("click", function(e) {
-            e.preventDefault();
-            const link = document.createElement("a");
-            link.href = "cv.pdf";
-            link.download = "Abdelilah_Ghoummach_CV.pdf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    }
-    const downloadOffer = document.getElementById("downloadOffer");
-    if (downloadOffer) {
-        downloadOffer.addEventListener("click", function(e) {
-            e.preventDefault();
-            const link = document.createElement("a");
-            link.href = "offer.pdf";
-            link.download = "Abdelilah_Ghoummach_Offer.pdf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    }
+    const cv = document.getElementById("downloadCV");
+    if (cv) cv.addEventListener('click', (e) => { e.preventDefault(); const a = document.createElement('a'); a.href = "cv.pdf"; a.download = "Abdelilah_Ghoummach_CV.pdf"; document.body.appendChild(a); a.click(); document.body.removeChild(a); });
+    const offer = document.getElementById("downloadOffer");
+    if (offer) offer.addEventListener('click', (e) => { e.preventDefault(); const a = document.createElement('a'); a.href = "offer.pdf"; a.download = "Abdelilah_Ghoummach_Offer.pdf"; document.body.appendChild(a); a.click(); document.body.removeChild(a); });
 }
 
-// ==========================================================================
-// Magnetic Buttons
-// ==========================================================================
 function initMagneticButtons() {
-    document.querySelectorAll('.magnetic').forEach(button => {
-        button.addEventListener('mousemove', function(e) {
+    document.querySelectorAll('.magnetic').forEach(btn => {
+        btn.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const deltaX = (x - centerX) / centerX * 10;
-            const deltaY = (y - centerY) / centerY * 10;
-            this.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+            const x = e.clientX - rect.left, y = e.clientY - rect.top;
+            const dx = (x - rect.width/2) / (rect.width/2) * 10;
+            const dy = (y - rect.height/2) / (rect.height/2) * 10;
+            this.style.transform = `translate(${dx}px, ${dy}px)`;
         });
-        button.addEventListener('mouseleave', function() { this.style.transform = ''; });
+        btn.addEventListener('mouseleave', () => btn.style.transform = '');
     });
 }
 
-// ==========================================================================
-// Back to Top Button
-// ==========================================================================
 function initBackToTop() {
     const btn = document.querySelector('.back-to-top');
     if (!btn) return;
-    window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 500);
-    });
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 500));
+    btn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 }
 
-// ==========================================================================
-// Utility Functions
-// ==========================================================================
-function setCurrentYear() {
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-}
-
-function initParallax() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-    window.addEventListener('scroll', () => {
-        hero.style.backgroundPositionY = `${window.pageYOffset * 0.5}px`;
-    });
-}
-
+function setCurrentYear() { const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); }
+function initParallax() { const hero = document.querySelector('.hero'); if (hero) window.addEventListener('scroll', () => hero.style.backgroundPositionY = `${window.pageYOffset * 0.5}px`); }
 function initSkillBars() {
     const bars = document.querySelectorAll('.progress, .fill');
     if (!bars.length) return;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const width = entry.target.style.width;
-                entry.target.style.width = '0';
-                setTimeout(() => { entry.target.style.width = width; }, 100);
-                observer.unobserve(entry.target);
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const w = e.target.style.width;
+                e.target.style.width = '0';
+                setTimeout(() => e.target.style.width = w, 100);
+                obs.unobserve(e.target);
             }
         });
     }, { threshold: 0.5 });
-    bars.forEach(bar => observer.observe(bar));
+    bars.forEach(bar => obs.observe(bar));
 }
-
 function initTypingEffect() {
-    const subtitle = document.querySelector('.hero-subtitle');
-    if (!subtitle) return;
-    const original = subtitle.textContent;
-    subtitle.textContent = '';
+    const sub = document.querySelector('.hero-subtitle');
+    if (!sub) return;
+    const original = sub.textContent;
+    sub.textContent = '';
     let i = 0;
     const interval = setInterval(() => {
-        if (i < original.length) {
-            subtitle.textContent += original.charAt(i);
-            i++;
-        } else {
-            clearInterval(interval);
-        }
+        if (i < original.length) { sub.textContent += original.charAt(i); i++; }
+        else clearInterval(interval);
     }, 30);
 }
