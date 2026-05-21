@@ -1,8 +1,8 @@
 // script.js - Complete functionality with Language Switcher
-// Fixed translation for Café Napoli / Coffee Napoli
+// Includes Cake Napoli / Café Napoli project translations
 
 // ==========================================================================
-// Translations Data (including Café/Coffee Napoli)
+// Translations Data
 // ==========================================================================
 const translations = {
     en: {
@@ -65,10 +65,10 @@ const translations = {
         filter_frontend: "Frontend",
         filter_backend: "Backend",
         filter_fullstack: "Full Stack",
-        // Napoli project (English)
-        napoli_title: "Coffee Napoli",
-        napoli_desc: "Modern and responsive coffee shop website with elegant UI design",
-        napoli_category: "Coffee Shop Website",
+        // Cake Napoli project (English)
+        napoli_title: "Cake Napoli",
+        napoli_desc: "Modern and responsive cake & coffee shop website with elegant UI design",
+        napoli_category: "Restaurant Website",
         napoli_btn: "Visit Website",
         // Other projects
         project1_title: "Personal Portfolio for Designer",
@@ -187,12 +187,12 @@ const translations = {
         filter_frontend: "Frontend",
         filter_backend: "Backend",
         filter_fullstack: "Full Stack",
-        // Napoli project (French)
+        // Cake Napoli project (French)
         napoli_title: "Café Napoli",
-        napoli_desc: "Site web moderne et responsive pour un café-restaurant avec un design UI élégant",
-        napoli_category: "Site de Café",
+        napoli_desc: "Site web moderne et responsive pour une pâtisserie-café avec un design UI élégant",
+        napoli_category: "Site de Pâtisserie",
         napoli_btn: "Visiter le Site",
-        // Other projects (French)
+        // Other projects
         project1_title: "Portfolio Personnel pour Designer",
         project1_desc: "Conception et développement d'un site portfolio en HTML, CSS et JavaScript pour présenter les réalisations et services d'un designer.",
         project2_title: "Portfolio de Projet de Construction",
@@ -251,65 +251,61 @@ const translations = {
     }
 };
 
+let currentLanguage = 'en';
+
 // ==========================================================================
 // Language Switcher
 // ==========================================================================
-let currentLanguage = 'en';
-
 function switchLanguage(lang) {
     currentLanguage = lang;
-    
-    // Update active button
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.lang === lang) btn.classList.add('active');
-    });
-    
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector(`.lang-btn[data-lang="${lang}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
     document.documentElement.lang = lang;
-    
-    // Update all elements with data-i18n attribute
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.dataset.i18n;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
         if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA')
-                element.placeholder = translations[lang][key];
-            else
-                element.textContent = translations[lang][key];
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                el.placeholder = translations[lang][key];
+            } else {
+                el.textContent = translations[lang][key];
+            }
         }
     });
-    
-    // Translate the Napoli project card (hardcoded)
+
     translateNapoliCard(lang);
-    
     resetHeroAnimation();
     localStorage.setItem('preferredLanguage', lang);
 }
 
 // Robust translation for the Napoli project card
 function translateNapoliCard(lang) {
-    // Find the card by data-category="restaurant" (or by image src if needed)
-    let napoliCard = document.querySelector('.project-card[data-category="restaurant"]');
+    // Recherche la carte par l'image contenant "cake-napoli"
+    let napoliCard = document.querySelector('.project-card img[src*="cake-napoli"]')?.closest('.project-card');
     if (!napoliCard) {
-        // Fallback: find by image containing "cafe-napoli.png"
-        napoliCard = document.querySelector('.project-card img[src*="cafe-napoli"]')?.closest('.project-card');
+        // Fallback : rechercher par le texte existant
+        napoliCard = Array.from(document.querySelectorAll('.project-card')).find(card =>
+            card.innerText.includes('Cake Napoli') || card.innerText.includes('Café Napoli')
+        );
     }
     if (!napoliCard) return;
-    
-    // Update overlay title and info title
+
+    // Mettre à jour les titres (overlay et info)
     const titles = napoliCard.querySelectorAll('.overlay-content h3, .project-info h3');
-    titles.forEach(title => {
-        if (translations[lang]?.napoli_title) title.textContent = translations[lang].napoli_title;
+    titles.forEach(t => {
+        if (translations[lang]?.napoli_title) t.textContent = translations[lang].napoli_title;
     });
-    
-    // Update description in overlay
+
+    // Mettre à jour la description
     const desc = napoliCard.querySelector('.overlay-content p');
     if (desc && translations[lang]?.napoli_desc) desc.textContent = translations[lang].napoli_desc;
-    
-    // Update category in project-meta
+
+    // Mettre à jour la catégorie
     const category = napoliCard.querySelector('.project-meta .project-category');
     if (category && translations[lang]?.napoli_category) category.textContent = translations[lang].napoli_category;
-    
-    // Update button text
+
+    // Mettre à jour le bouton
     const btn = napoliCard.querySelector('.overlay-content .view-btn');
     if (btn && translations[lang]?.napoli_btn) btn.textContent = translations[lang].napoli_btn;
 }
@@ -350,16 +346,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initLanguageSwitcher() {
-    const langButtons = document.querySelectorAll('.lang-btn');
     const savedLang = localStorage.getItem('preferredLanguage');
+    const browserLang = navigator.language.split('-')[0];
     if (savedLang && (savedLang === 'en' || savedLang === 'fr')) {
         currentLanguage = savedLang;
     } else {
-        const browserLang = navigator.language.split('-')[0];
-        currentLanguage = (browserLang === 'fr') ? 'fr' : 'en';
+        currentLanguage = browserLang === 'fr' ? 'fr' : 'en';
     }
     switchLanguage(currentLanguage);
-    langButtons.forEach(btn => {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
     });
 }
@@ -443,7 +438,7 @@ function initScrollEffects() {
 }
 
 // ==========================================================================
-// Animations
+// Animations (Fade In)
 // ==========================================================================
 function initAnimations() {
     const fadeElements = document.querySelectorAll('.fade-in');
@@ -569,6 +564,9 @@ function showError(fieldId, msg) {
 
 function initEmailJS() { if (typeof emailjs !== 'undefined') emailjs.init("G1T_YQFURB82uD9n4"); }
 
+// ==========================================================================
+// Download Buttons
+// ==========================================================================
 function initDownloadButtons() {
     const cv = document.getElementById("downloadCV");
     if (cv) cv.addEventListener('click', (e) => { e.preventDefault(); const a = document.createElement('a'); a.href = "cv.pdf"; a.download = "Abdelilah_Ghoummach_CV.pdf"; document.body.appendChild(a); a.click(); document.body.removeChild(a); });
@@ -576,6 +574,9 @@ function initDownloadButtons() {
     if (offer) offer.addEventListener('click', (e) => { e.preventDefault(); const a = document.createElement('a'); a.href = "offer.pdf"; a.download = "Abdelilah_Ghoummach_Offer.pdf"; document.body.appendChild(a); a.click(); document.body.removeChild(a); });
 }
 
+// ==========================================================================
+// Magnetic Buttons
+// ==========================================================================
 function initMagneticButtons() {
     document.querySelectorAll('.magnetic').forEach(btn => {
         btn.addEventListener('mousemove', function(e) {
@@ -589,6 +590,9 @@ function initMagneticButtons() {
     });
 }
 
+// ==========================================================================
+// Back to Top Button
+// ==========================================================================
 function initBackToTop() {
     const btn = document.querySelector('.back-to-top');
     if (!btn) return;
@@ -596,6 +600,9 @@ function initBackToTop() {
     btn.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 }
 
+// ==========================================================================
+// Utilities
+// ==========================================================================
 function setCurrentYear() { const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); }
 function initParallax() { const hero = document.querySelector('.hero'); if (hero) window.addEventListener('scroll', () => hero.style.backgroundPositionY = `${window.pageYOffset * 0.5}px`); }
 function initSkillBars() {
