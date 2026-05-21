@@ -631,3 +631,22 @@ function initTypingEffect() {
         else clearInterval(interval);
     }, 30);
 }
+// ==========================================================================
+// Preloader – disparaît après 3 secondes exactement
+// ==========================================================================
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+    
+    setTimeout(() => {
+        preloader.classList.add('hide');
+        // Supprimer du DOM après la transition (optionnel)
+        setTimeout(() => {
+            if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+        }, 600);
+    }, 
+    1000); // 3 secondes
+}
+
+// Appeler la fonction au chargement du DOM
+initPreloader();

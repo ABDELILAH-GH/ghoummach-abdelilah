@@ -34,6 +34,120 @@
 html {
     scroll-behavior: smooth;
 }
+/* ===== PRELOADER ===== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--light);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.6s;
+}
+
+#preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-container {
+    text-align: center;
+}
+
+/* Anneau rotatif */
+.preloader-ring {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 25px;
+    border: 3px solid rgba(183, 110, 121, 0.2);
+    border-top: 3px solid var(--secondary);
+    border-right: 3px solid var(--accent);
+    border-radius: 50%;
+    animation: preloaderSpin 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+@keyframes preloaderSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Logo GA */
+.preloader-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    animation: preloaderGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes preloaderGlow {
+    0% {
+        opacity: 0.7;
+        letter-spacing: 4px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 6px;
+        background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+    }
+}
+
+/* Texte de chargement */
+.preloader-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    position: relative;
+    display: inline-block;
+}
+
+.preloader-text::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-2);
+    animation: loadingLine 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingLine {
+    0% { width: 0; left: 0; }
+    50% { width: 100%; left: 0; }
+    100% { width: 0; left: 100%; }
+}
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+    .preloader-ring, .preloader-logo, .preloader-text::after {
+        animation: none;
+    }
+    .preloader-logo { letter-spacing: 4px; opacity: 1; }
+    .preloader-text::after { width: 0; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .preloader-logo { font-size: 36px; letter-spacing: 3px; }
+    .preloader-ring { width: 55px; height: 55px; }
+}
 
 body {
     font-family: 'Montserrat', sans-serif;
