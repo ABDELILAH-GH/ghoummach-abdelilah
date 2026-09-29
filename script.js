@@ -125,7 +125,10 @@ const translations = {
         error_required: "This field is required.",
         error_email: "Please enter a valid email address.",
         error_phone: "Please enter a valid 10-digit phone number.",
-        error_message: "Message must be at least 5 characters."
+        error_message: "Message must be at least 5 characters.",
+        nav_cards: "Digital Cards",
+    view_cards: "Digital Cards",
+ 
     },
     fr: {
         tagline: "Développeur Full Stack & Freelance",
@@ -134,6 +137,8 @@ const translations = {
         nav_skills: "Compétences",
         nav_projects: "Projets",
         nav_contact: "Contact",
+           nav_cards: "Cartes Numériques",
+    view_cards: "Cartes Numériques",
         hero_pretitle: "Développeur Full Stack",
         hero_title1: "Créer",
         hero_title2: "Des",

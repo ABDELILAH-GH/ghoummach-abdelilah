@@ -54,20 +54,22 @@
                 <h1>Ghoummach <span> Abdelilah</span></h1>
                 <p class="tagline" data-i18n="tagline">Full Stack Developer & Freelancer</p>
             </div>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active"><span data-i18n="nav_home">Home</span></a></li>
-                    <li><a href="#about" class="nav-link"><span data-i18n="nav_about">About</span></a></li>
-                    <li><a href="#skills" class="nav-link"><span data-i18n="nav_skills">Skills</span></a></li>
-                    <li><a href="#portfolio" class="nav-link"><span data-i18n="nav_projects">Projects</span></a></li>
-                    <li><a href="#contact" class="nav-link"><span data-i18n="nav_contact">Contact</span></a></li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
+<nav class="nav">
+    <ul class="nav-list">
+        <li><a href="#home" class="nav-link active"><span data-i18n="nav_home">Home</span></a></li>
+        <li><a href="#about" class="nav-link"><span data-i18n="nav_about">About</span></a></li>
+        <li><a href="#skills" class="nav-link"><span data-i18n="nav_skills">Skills</span></a></li>
+        <li><a href="#portfolio" class="nav-link"><span data-i18n="nav_projects">Projects</span></a></li>
+        <!-- NOUVEAU LIEN ICI -->
+        <li><a href="#digital-cards" class="nav-link"><span data-i18n="nav_cards">Digital Cards</span></a></li>
+        <li><a href="#contact" class="nav-link"><span data-i18n="nav_contact">Contact</span></a></li>
+    </ul>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
         </div>
     </header>
 
@@ -85,19 +87,24 @@
                     </h1>
                     <p class="hero-subtitle fade-in" data-i18n="hero_subtitle">I specialize in building modern and responsive websites using HTML, CSS, JavaScript, Laravel, and React.</p>
                     <div class="hero-buttons fade-in">
-                        <a href="#" id="downloadCV" class="btn btn-primary magnetic">
-                            <span class="btn-text" data-i18n="download_cv">Download My CV</span>
-                            <span class="btn-icon"><i class="fas fa-download"></i></span>
-                        </a>
-                        <a href="#" id="downloadOffer" class="btn btn-primary magnetic">
-                            <span class="btn-text" data-i18n="our_offer">My Offer</span>
-                            <span class="btn-icon"><i class="fas fa-tag"></i></span>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary magnetic">
-                            <span class="btn-text" data-i18n="contact_me">Contact Me</span>
-                            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
-                        </a>
-                    </div>
+    <a href="#" id="downloadCV" class="btn btn-primary magnetic">
+        <span class="btn-text" data-i18n="download_cv">Download My CV</span>
+        <span class="btn-icon"><i class="fas fa-download"></i></span>
+    </a>
+    <a href="#" id="downloadOffer" class="btn btn-primary magnetic">
+        <span class="btn-text" data-i18n="our_offer">My Offer</span>
+        <span class="btn-icon"><i class="fas fa-tag"></i></span>
+    </a>
+    <!-- NOUVEAU BOUTON ICI -->
+    <a href="#digital-cards" class="btn btn-outline magnetic">
+        <span class="btn-text" data-i18n="view_cards">Digital Cards</span>
+        <span class="btn-icon"><i class="fas fa-id-card"></i></span>
+    </a>
+    <a href="#contact" class="btn btn-secondary magnetic">
+        <span class="btn-text" data-i18n="contact_me">Contact Me</span>
+        <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+    </a>
+</div>
                 </div>
                 <!-- Profile Picture -->
                 <div class="profile-pic">
@@ -425,6 +432,31 @@
             </div>
             <div class="portfolio-grid">
                 <!-- Project 1 -->
+                 <!-- Brahim BlankDigi - Portfolio Website -->
+<div class="project-card fade-in" data-category="frontend">
+    <div class="project-image">
+        <img src="images/brahim-blankdigi.png" alt="Brahim BlankDigi Portfolio">
+        <div class="project-overlay">
+            <div class="overlay-content">
+                <h3 data-i18n="project_brahim_title">Brahim BlankDigi Portfolio</h3>
+                <p data-i18n="project_brahim_desc">Personal portfolio website built with HTML, CSS and JavaScript to showcase digital services and projects.</p>
+                <a href="https://brahim.blankdigi.com" target="_blank" class="view-btn" data-i18n="view_details">View Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="project-info">
+        <div class="project-meta">
+            <span class="project-category" data-i18n="category_frontend">Frontend</span>
+            <span class="project-year">2026</span>
+        </div>
+        <h3 data-i18n="project_brahim_title">Brahim BlankDigi Portfolio</h3>
+        <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+        </div>
+    </div>
+</div>
                  <!-- Project : Cake Napoli -->
 <div class="project-card fade-in" data-category="restaurant">
     <div class="project-image">
@@ -620,7 +652,201 @@
             </div>
         </div>
     </section>
+<!-- Digital Business Cards Section -->
+<section id="digital-cards" class="digital-cards section">
+    <div class="container">
+        <div class="section-header">
+            <h4 class="section-subtitle fade-in" data-i18n="digital_cards_subtitle">NFC Digital Business Cards</h4>
+            <h2 class="section-title fade-in"><span data-i18n="digital_cards_title1">Digital</span> <span data-i18n="digital_cards_title2">Business Cards</span></h2>
+            <div class="section-divider fade-in"></div>
+            <p class="section-description fade-in" data-i18n="digital_cards_desc">Modern NFC digital business cards built with HTML, CSS and JavaScript. Tap or scan to instantly share contact information, social links and more.</p>
+        </div>
+        
+        <div class="digital-cards-grid">
+            <!-- kattan interiors -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/kattan.png" alt="Kattan Interiors Card">
+                    <div class="card-overlay">
+                        <a href="https://kattan-interiors.vercel.app" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>Kattan Interiors</h3>
+                    <p data-i18n="card_kattan_desc">Digital business card</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div><!-- BlankDigi -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-blakdigi.png" alt="BlankDigi Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://links.blankdigi.com" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>BlankDigi</h3>
+                    <p data-i18n="card_blankdigi_desc">Digital business card</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Follovida -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-follovida.png" alt="Follovida Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://links.follovida.com" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>Follovida</h3>
+                    <p data-i18n="card_follovida_desc">Digital business card</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Baakili Ameublement -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-baakili.png" alt="Baakili Ameublement Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://baakili-ammeublement-home.vercel.app/" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>Baakili Ameublement</h3>
+                    <p data-i18n="card_baakili_desc">Furniture store digital card</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Naccer Tech -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-naccer.png" alt="Naccer Tech Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://naccer-tech.vercel.app/" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>Naccer Tech</h3>
+                    <p data-i18n="card_naccer_desc">Technology company digital card</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twins Cat24 -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-twins.png" alt="Twins Cat24 Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://twins-cat24.vercel.app/" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>Twins Cat24</h3>
+                    <p data-i18n="card_twins_desc">E-commerce digital card</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lamkhiar Shoes -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-lamkhiar.png" alt="Lamkhiar Shoes Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://lmkhiar-shoes.vercel.app/" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>LAMKHIAR SHOES</h3>
+                    <p data-i18n="card_lamkhiar_desc">Shoe store digital card · Azemmour</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doukala Shop / Othman Khadim -->
+            <div class="digital-card-item fade-in">
+                <div class="digital-card-preview">
+                    <img src="images/card-doukala.png" alt="Othman Khadim Digital Card">
+                    <div class="card-overlay">
+                        <a href="https://doukala-shop.vercel.app/" target="_blank" class="card-link-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span data-i18n="visit_card">Visit Card</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="digital-card-info">
+                    <h3>Othman Khadim</h3>
+                    <p data-i18n="card_doukala_desc">Clothing & fashion digital card · Azemmour</p>
+                    <div class="card-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="digital-cards-cta fade-in">
+            <p data-i18n="digital_cards_cta">Need a custom NFC digital business card for your business?</p>
+            <a href="#contact" class="btn btn-primary magnetic">
+                <span class="btn-text" data-i18n="contact_me">Contact Me</span>
+                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+            </a>
+        </div>
+    </div>
+</section>
     <!-- Contact Section -->
     <section id="contact" class="contact section">
         <div class="container">
